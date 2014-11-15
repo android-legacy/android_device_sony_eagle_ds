@@ -43,8 +43,10 @@ on init
     symlink /storage/emulated/legacy /mnt/sdcard
     symlink /storage/emulated/legacy /storage/sdcard0
     symlink /mnt/shell/emulated/0 /storage/emulated/legacy
-    symlink /storage/sdcard1 /sdcard1
+    symlink /storage/sdcard1 /ext_card
+    symlink /storage/sdcard1 /mnt/ext_card
     symlink /storage/usbdisk /usbdisk
+    symlink /storage/usbdisk /mnt/usbdisk
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB

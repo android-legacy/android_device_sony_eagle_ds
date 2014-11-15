@@ -2,16 +2,18 @@
  {
    "repository": "android_kernel_sony_eagle",
    "target_path": "kernel/sony/eagle",
-   "revision": "dev"
+   "revision": "cm-11.0-new"
  }, {
    "repository": "proprietary_vendor_sony",
    "target_path": "vendor/sony",
-   "revision": "cm-11.0"
- }, {
-   "repository": "proprietary_vendor_sony_eagle",
-   "target_path": "vendor/sony/eagle",
-   "revision": "cm-11.0"
- }, {
+   "revision": "aosp"
+ },
+ {
+   "repository": "android_device_sony_msm8226-common",
+   "target_path": "device/sony/msm8226-common",
+   "branch": "android-4.4"
+ },
+ {
    "repository": "android_device_sony_common",
    "target_path": "device/sony/common",
    "revision": "android-4.4"
@@ -29,8 +31,8 @@
  },
  {
    "remote": "omnirom",
-   "repository": "android_hardware_qcom_gps",
-   "target_path": "hardware/qcom/gps",
+   "repository":   "android_hardware_sony_DASH",
+   "target_path":  "hardware/sony/DASH",
    "revision": "android-4.4"
  }
 ]

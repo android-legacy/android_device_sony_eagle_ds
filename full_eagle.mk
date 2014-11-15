@@ -18,7 +18,7 @@ TARGET_SCREEN_WIDTH := 540
 
 # Torch
 PRODUCT_PACKAGES := \
-    Torch
+    OmniTorch
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
@@ -29,9 +29,12 @@ $(call inherit-product, device/sony/common/resources.mk)
 # Inherit from eagle device
 $(call inherit-product, device/sony/eagle/eagle.mk)
 
+# Build fingerprints
+PRODUCT_BUILD_PROP_OVERRIDES +=BUILD_UTC_DATE=0
+ 
 # Set those variables here to overwrite the inherited values.
-PRODUCT_NAME := full_eagle
-PRODUCT_DEVICE := eagle
+PRODUCT_NAME := full_omni
+PRODUCT_DEVICE := omni
 PRODUCT_BRAND := Sony
 PRODUCT_MANUFACTURER := Sony
-PRODUCT_MODEL := Xperia M2 LTE
+PRODUCT_MODEL := Xperia M2LTE

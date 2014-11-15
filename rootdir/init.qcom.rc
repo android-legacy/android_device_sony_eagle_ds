@@ -23,6 +23,8 @@ on early-init
     write /sys/block/mmcblk0/bdi/read_ahead_kb 512
 
 on init
+    # Set permissions for persist partition
+    mkdir /persist 0771 system system
     # See storage config details at http://source.android.com/tech/storage/
     mkdir /mnt/shell/emulated 0700 shell shell
     mkdir /storage/emulated 0555 root root
@@ -54,11 +56,9 @@ on early-boot
 
 on boot
     # bring CPUs online
-    write /sys/module/msm_thermal/core_control/enabled 0
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu2/online 1
     write /sys/devices/system/cpu/cpu3/online 1
-    write /sys/module/msm_thermal/core_control/enabled 1
 
     # Bluetooth
     chown bluetooth bluetooth /sys/module/hci_smd/parameters/hcismd_set
@@ -109,7 +109,12 @@ on boot
     mkdir /data/nfc 0770 nfc nfc
     mkdir /data/nfc/param 0770 nfc nfc
 
+    # NFC
+    # Symlink for compability
+    symlink /dev/pn547 /dev/pn544
+
 on post-fs-data
+
     mkdir /data/media 0770 media_rw media_rw
 
     mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
@@ -138,6 +143,21 @@ on post-fs-data
 
     # Create directory used by audio subsystem
     mkdir /data/misc/audio 0770 audio audio
+
+    # Mounting of persist is moved to 'on emmc-fs' and 'on fs' sections
+    # We chown/chmod /persist again so because mount is run as root + defaults
+    chown system system /persist
+    chmod 0771 /persist
+    chmod 0664 /sys/devices/platform/msm_sdcc.1/polling
+    chmod 0664 /sys/devices/platform/msm_sdcc.2/polling
+    chmod 0664 /sys/devices/platform/msm_sdcc.3/polling
+    chmod 0664 /sys/devices/platform/msm_sdcc.4/polling
+
+    # Chown polling nodes as needed from UI running on system server
+    chown system system /sys/devices/platform/msm_sdcc.1/polling
+    chown system system /sys/devices/platform/msm_sdcc.2/polling
+    chown system system /sys/devices/platform/msm_sdcc.3/polling
+    chown system system /sys/devices/platform/msm_sdcc.4/polling
 
     #Create directories for gpsone_daemon services
     mkdir /data/misc/gpsone_d 0770 system gps
@@ -171,7 +191,6 @@ on charger
     write /sys/module/msm_pm/modes/cpu2/power_collapse/suspend_enabled 1
     write /sys/module/msm_pm/modes/cpu3/power_collapse/suspend_enabled 1
     write /sys/module/msm_pm/modes/cpu0/power_collapse/idle_enabled 1
-    write /sys/module/msm_thermal/core_control/enabled 0
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu2/online 1
     write /sys/devices/system/cpu/cpu3/online 1
@@ -183,7 +202,6 @@ on charger
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 300000
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 300000
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 300000
-    write /sys/module/msm_thermal/core_control/enabled 1
     write /sys/devices/system/cpu/cpu1/online 0
     write /sys/devices/system/cpu/cpu2/online 0
     write /sys/devices/system/cpu/cpu3/online 0
@@ -243,6 +261,11 @@ service cnd /system/bin/cnd
     class late_start
     socket cnd stream 660 root inet
 
+service qcom-c_main-sh /system/bin/sh /init.class_main.sh
+    class main
+    user root
+    oneshot
+
 service irsc_util /system/bin/logwrapper /system/bin/irsc_util "/etc/sec_config"
     class main
     user root
@@ -251,6 +274,9 @@ service irsc_util /system/bin/logwrapper /system/bin/irsc_util "/etc/sec_config"
 service rmt_storage /system/bin/rmt_storage
     class core
     user root
+
+on property:ro.boot.emmc=true
+    start rmt_storage
 
 service rfs_access /system/bin/rfs_access
    class core
@@ -414,6 +440,11 @@ service fm_dl /system/bin/sh /system/etc/init.qcom.fm.sh
     disabled
     oneshot
 
+service qcom-sh /system/bin/sh /init.qcom.sh
+    class late_start
+    user root
+    oneshot
+
 service sdcard /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated
     class late_start
 
@@ -459,21 +490,32 @@ service mpdecision /system/bin/mpdecision --avg_comp
    user root
    disabled
 
+service memsicd /system/bin/memsicd
+    class main
+    oneshot
+
 #start GNSS/Sensor interface daemon
 service gsiff_daemon /system/bin/gsiff_daemon
    class late_start
    user system
    group gps net_raw
 
-service thermal-engine /system/bin/thermal-engine
-    class main
-    user root
-    group root
+#service thermal-engine /system/bin/thermal-engine
+#    class main
+#    user root
+#    group root
 
 service qseecomd /system/bin/qseecomd
     class late_start
     user root
     group root
+
+##776,20140220,Rex,[VY5X][Tool][Service] Implement QmiGateService {5}
+service QmiGateDaemon /system/bin/QmiGateDaemon
+    class main
+    user root
+    group system
+    ioprio rt 4
 
 service audiod /system/bin/audiod
    class late_start

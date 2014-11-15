@@ -2,11 +2,11 @@
  {
    "repository": "android_kernel_sony_eagle",
    "target_path": "kernel/sony/eagle",
-   "revision": "cm-11.0"
+   "revision": "cm-11.0-new"
  }, {
    "repository": "proprietary_vendor_sony",
    "target_path": "vendor/sony",
-   "revision": "cm-11.0"
+   "revision": "aosp"
  },
  {
    "repository": "android_device_sony_msm8226-common",

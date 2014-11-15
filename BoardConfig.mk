@@ -11,7 +11,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-USE_CAMERA_STUB := true
 
 # inherit from qcom-common
 include device/sony/msm8226-common/BoardConfigCommon.mk
@@ -31,9 +30,6 @@ BOARD_HARDWARE_CLASS := device/sony/eagle/cmhw
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/sony/eagle/bluetooth
-
-# Camera
-COMMON_GLOBAL_CFLAGS += -DSONY_CAM_PARAMS
 
 # WiFi
 WLAN_MODULES:

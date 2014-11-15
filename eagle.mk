@@ -58,7 +58,7 @@ PRODUCT_COPY_FILES += \
 
 # Custom dtb tool
 PRODUCT_PACKAGES += \
-    dtbToolCM
+    dtbToolM2
 
 # Sbin
 PRODUCT_COPY_FILES += \

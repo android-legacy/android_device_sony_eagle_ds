@@ -15,6 +15,8 @@
 #
 
 on early-init
+    mkdir /firmware 0771 system system
+    symlink /data/tombstones /tombstones
     chmod 666 /proc/cmdline
 
 on init
@@ -44,7 +46,7 @@ on fs
     chmod 0555 /lta-label
 
     wait /dev/block/platform/msm_sdcc.1/by-name/modem
-    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/modem /firmware ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337
+    mount vfat /dev/block/platform/msm_sdcc.1/by-name/modem /firmware ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337
 
     # TA support
     class_start trimarea

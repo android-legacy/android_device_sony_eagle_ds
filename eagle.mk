@@ -69,7 +69,6 @@ PRODUCT_COPY_FILES += \
 
 # Audio Configs
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/system/vendor/etc/audio_effects.conf:system/vendor/etc/audio_effects.conf \
     $(LOCAL_PATH)/rootdir/system/etc/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/rootdir/system/etc/mixer_paths.xml:system/etc/mixer_paths.xml \
     $(LOCAL_PATH)/rootdir/system/etc/mixer_paths_VY52.xml:system/etc/mixer_paths_VY52.xml \

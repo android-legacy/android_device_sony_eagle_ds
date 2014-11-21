@@ -72,16 +72,19 @@
 
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
-        <item>25</item>
-        <item>83</item>
-        <item>141</item>
-        <item>198</item>
-        <item>255</item>
-        <item>313</item>
-        <item>370</item>
-        <item>516</item>
-        <item>658</item>
-        <item>800</item>
+        <item>2</item>
+        <item>5</item>
+        <item>10</item>
+        <item>20</item>
+        <item>50</item>
+        <item>100</item>
+        <item>200</item>
+        <item>500</item>
+        <item>1000</item>
+        <item>2000</item>
+        <item>3000</item>
+        <item>4000</item>
+        <item>5000</item>
     </integer-array>
 
     <!-- Minimum screen brightness setting allowed by the power manager.

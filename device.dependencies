@@ -2,7 +2,7 @@
  {
    "repository": "android_kernel_sony_eagle",
    "target_path": "kernel/sony/eagle",
-   "revision": "cas-11.0"
+   "revision": "castest"
  }, {
    "repository": "proprietary_vendor_sony",
    "target_path": "vendor/sony",

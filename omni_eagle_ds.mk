@@ -8,4 +8,10 @@ $(call inherit-product, vendor/omni/config/common.mk)
 $(call inherit-product, device/sony/eagle/full_eagle.mk)
 
 PRODUCT_NAME := omni_eagle_ds
-PRODUCT_DEVICE := eagle_ds
+
+# Set those variables here to overwrite the inherited values.
+PRODUCT_NAME := full_omni
+PRODUCT_DEVICE := omni
+PRODUCT_BRAND := Sony
+PRODUCT_MANUFACTURER := Sony
+PRODUCT_MODEL := Xperia M2 Dual Sim

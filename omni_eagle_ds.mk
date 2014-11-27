@@ -8,4 +8,4 @@ $(call inherit-product, vendor/omni/config/common.mk)
 $(call inherit-product, device/sony/eagle/full_eagle.mk)
 
 PRODUCT_NAME := omni_eagle_ds
-PRODUCT_DEVICE := eagle
+PRODUCT_DEVICE := eagle_ds

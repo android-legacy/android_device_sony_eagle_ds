@@ -128,32 +128,32 @@ on boot
     #chown system system /sys/class/leds/red/brightness
     #chown system system /sys/class/leds/green/brightness
     #chown system system /sys/class/leds/blue/brightness
-    chown root system /sys/class/leds/red/brightness
-    chown root system /sys/class/leds/green/brightness
-    chown root system /sys/class/leds/blue/brightness
-    #chown root system /sys/class/leds/red/flashmode
-    #chown root system /sys/class/leds/green/flashmode
-    #chown root system /sys/class/leds/blue/flashmode
-    #chown root system /sys/class/leds/red/onms
-    #chown root system /sys/class/leds/green/onms
-    #chown root system /sys/class/leds/blue/onms
-    #chown root system /sys/class/leds/red/offms
-    #chown root system /sys/class/leds/green/offms
-    #chown root system /sys/class/leds/blue/offms
-    #chown root system /sys/class/leds/red/tunebrightness
-    #chown root system /sys/class/leds/green/tunebrightness
-    #chown root system /sys/class/leds/blue/tunebrightness
+    chown root system /sys/class/leds/rgb_red/brightness
+    chown root system /sys/class/leds/rgb_green/brightness
+    chown root system /sys/class/leds/rgb_blue/brightness
+    #chown root system /sys/class/leds/rgb_red/flashmode
+    #chown root system /sys/class/leds/rgb_green/flashmode
+    #chown root system /sys/class/leds/rgb_blue/flashmode
+    #chown root system /sys/class/leds/rgb_red/onms
+    #chown root system /sys/class/leds/rgb_green/onms
+    #chown root system /sys/class/leds/rgb_blue/onms
+    #chown root system /sys/class/leds/rgb_red/offms
+    #chown root system /sys/class/leds/rgb_green/offms
+    #chown root system /sys/class/leds/rgb_blue/offms
+    #chown root system /sys/class/leds/rgb_red/tunebrightness
+    #chown root system /sys/class/leds/rgb_green/tunebrightness
+    #chown root system /sys/class/leds/rgb_blue/tunebrightness
 
     # Mike, remove Ellen's patch, using Qcom's original design.
-    chown root system /sys/class/leds/red/blink
-    chown root system /sys/class/leds/red/duty_pcts
-    chown root system /sys/class/leds/red/ramp_step_ms
-    chown root system /sys/class/leds/green/blink
-    chown root system /sys/class/leds/green/duty_pcts
-    chown root system /sys/class/leds/green/ramp_step_ms
-    chown root system /sys/class/leds/blue/blink
-    chown root system /sys/class/leds/blue/duty_pcts
-    chown root system /sys/class/leds/blue/ramp_step_ms
+    chown root system /sys/class/leds/rgb_red/blink
+    chown root system /sys/class/leds/rgb_red/duty_pcts
+    chown root system /sys/class/leds/rgb_red/ramp_step_ms
+    chown root system /sys/class/leds/rgb_green/blink
+    chown root system /sys/class/leds/rgb_green/duty_pcts
+    chown root system /sys/class/leds/rgb_green/ramp_step_ms
+    chown root system /sys/class/leds/rgb_blue/blink
+    chown root system /sys/class/leds/rgb_blue/duty_pcts
+    chown root system /sys/class/leds/rgb_blue/ramp_step_ms
 
     chown root system /sys/class/illumination/0
     chown root system /sys/class/illumination/1
@@ -166,21 +166,21 @@ on boot
     chown root system /sys/class/illumination/8
     #E:EllenLu 20140123 ,[LED]add for SOMC Illumination
     # Mike, temp for all R/W permission for T1/T2
-    chmod 0664 /sys/class/leds/red/brightness
-    chmod 0664 /sys/class/leds/green/brightness
-    chmod 0664 /sys/class/leds/blue/brightness
-    chmod 0664 /sys/class/leds/red/flashmode
-    chmod 0664 /sys/class/leds/green/flashmode
-    chmod 0664 /sys/class/leds/blue/flashmode
-    chmod 0664 /sys/class/leds/red/onms
-    chmod 0664 /sys/class/leds/green/onms
-    chmod 0664 /sys/class/leds/blue/onms
-    chmod 0664 /sys/class/leds/red/offms
-    chmod 0664 /sys/class/leds/green/offms
-    chmod 0664 /sys/class/leds/blue/offms
-    chmod 0664 /sys/class/leds/red/tunebrightness
-    chmod 0664 /sys/class/leds/green/tunebrightness
-    chmod 0664 /sys/class/leds/blue/tunebrightness
+    chmod 0664 /sys/class/leds/rgb_red/brightness
+    chmod 0664 /sys/class/leds/rgb_green/brightness
+    chmod 0664 /sys/class/leds/rgb_blue/brightness
+    chmod 0664 /sys/class/leds/rgb_red/flashmode
+    chmod 0664 /sys/class/leds/rgb_green/flashmode
+    chmod 0664 /sys/class/leds/rgb_blue/flashmode
+    chmod 0664 /sys/class/leds/rgb_red/onms
+    chmod 0664 /sys/class/leds/rgb_green/onms
+    chmod 0664 /sys/class/leds/rgb_blue/onms
+    chmod 0664 /sys/class/leds/rgb_red/offms
+    chmod 0664 /sys/class/leds/rgb_green/offms
+    chmod 0664 /sys/class/leds/rgb_blue/offms
+    chmod 0664 /sys/class/leds/rgb_red/tunebrightness
+    chmod 0664 /sys/class/leds/rgb_green/tunebrightness
+    chmod 0664 /sys/class/leds/rgb_blue/tunebrightness
     chmod 0664 /sys/class/illumination/0
     chmod 0664 /sys/class/illumination/1
     chmod 0664 /sys/class/illumination/2

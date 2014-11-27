@@ -31,7 +31,7 @@ $(call inherit-product, device/sony/eagle/eagle.mk)
 
 # Set those variables here to overwrite the inherited values.
 PRODUCT_NAME := full_eagle
-PRODUCT_DEVICE := eagle
+PRODUCT_DEVICE := eagle_ds
 PRODUCT_BRAND := Sony
 PRODUCT_MANUFACTURER := Sony
 PRODUCT_MODEL := Xperia M2 Dual Sim

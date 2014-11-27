@@ -1,0 +1,7 @@
+[
+ {
+   "repository": "android_device_sony_eagle",
+   "target_path": "device/sony/eagle",
+   "branch": "cm-11.0"
+ }
+]

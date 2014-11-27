@@ -1,2 +1,2 @@
-add_lunch_combo omni_eagle-userdebug
+add_lunch_combo omni_eagle_ds-userdebug
 

@@ -6,7 +6,7 @@
 {
    "repository": "android_kernel_caf_msm8x26",
    "target_path": "kernel/sony/eagle",
-   "revision": "kk-sb"
+   "revision": "kk-sb-3.5.1"
  },
 {
    "repository": "proprietary_vendor_sony",
